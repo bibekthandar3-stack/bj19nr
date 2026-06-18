@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Full Stack Development ePortfolio — CET-138 Assignment 1">
+    <meta name="theme-color" content="#10b981">
+    <title>Bibek Thandar | Full Stack ePortfolio</title>
+
+    <!-- Google Fonts: Poppins + Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+    <!-- Top progress bar -->
+    <div id="progress-bar"></div>
+
+    <!-- ===== DASHBOARD HEADER ===== -->
+    <header class="dash-header">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="d-flex justify-content-between align-items-center py-3 gap-2">
+                <!-- LEFT: Mobile menu + Logo + Title -->
+                <div class="d-flex align-items-center gap-2 gap-md-3 flex-shrink-1" style="min-width:0;">
+                    <button id="menu-toggle" class="btn-icon d-lg-none" aria-label="Toggle menu">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div class="logo-box">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+                    <div class="title-wrap">
+                        <h1 class="dash-title mb-0">Bibek Thandar</h1>
+                        <small class="text-muted-c d-none d-sm-block">CET-138 · Full Stack ePortfolio</small>
+                    </div>
+                </div>
+                <!-- RIGHT: Status + Theme -->
+                <div class="d-flex align-items-center gap-2 flex-shrink-0">
+                    <span class="status-pill d-none d-sm-inline-flex"><span class="status-dot"></span> Online</span>
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme" title="Toggle theme (T)">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dash-layout">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="dash-sidebar" id="sidebar">
+            <nav aria-label="Section navigation">
+                <p class="sidebar-label">NAVIGATE</p>
+                <ul class="sidebar-nav">
+                    <li><a href="#overview" class="active"><i class="bi bi-grid-1x2-fill"></i> Overview</a></li>
+                    <li><a href="#about"><i class="bi bi-person-circle"></i> About Me</a></li>
+                    <li><a href="#fullstack"><i class="bi bi-stack"></i> Full Stack</a></li>
+                    <li><a href="#html"><i class="bi bi-filetype-html"></i> HTML</a></li>
+                    <li><a href="#css"><i class="bi bi-filetype-css"></i> CSS</a></li>
+                    <li><a href="#bootstrap"><i class="bi bi-bootstrap"></i> Bootstrap</a></li>
+                    <li><a href="#javascript"><i class="bi bi-filetype-js"></i> JavaScript</a></li>
+                    <li><a href="#contact"><i class="bi bi-envelope-fill"></i> Contact</a></li>
+                </ul>
+
+                <p class="sidebar-label mt-4">SKILLS</p>
+                <div class="sidebar-skill"><span>HTML</span><div class="bar"><i style="width:90%"></i></div></div>
+                <div class="sidebar-skill"><span>CSS</span><div class="bar"><i style="width:85%"></i></div></div>
+                <div class="sidebar-skill"><span>JavaScript</span><div class="bar"><i style="width:75%"></i></div></div>
+                <div class="sidebar-skill"><span>Bootstrap</span><div class="bar"><i style="width:80%"></i></div></div>
+
+                <div class="sidebar-footer">
+                    <p class="small text-muted-c mb-1">Press <kbd>T</kbd> to toggle theme</p>
+                    <p class="small text-muted-c mb-0">Press <kbd>/</kbd> to focus tasks</p>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Sidebar backdrop for mobile -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="dash-main">
+
+            <!-- ===== HERO / OVERVIEW ===== -->
+            <section id="overview" class="hero-card">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7">
+                        <span class="badge-c mb-3"><i class="bi bi-mortarboard-fill me-2"></i>CET138 Assignment 1 · Student ID: bj19nr</span>
+                        <h2 class="hero-h1">Hi, I'm <span class="gradient-text">Bibek Thandar</span></h2>
+                        <p class="hero-sub">A junior <span id="typewriter" class="mono">Full Stack Developer</span><span class="caret">|</span></p>
+                        <p class="hero-lead">Welcome to my interactive ePortfolio — a hands-on showcase of everything I've learned about building modern, accessible, and dynamic web applications.</p>
+                        <div class="d-flex flex-wrap gap-2 mt-4">
+                            <a href="#fullstack" class="btn btn-c-primary"><i class="bi bi-rocket-takeoff me-2"></i>Explore Portfolio</a>
+                            <a href="#contact" class="btn btn-c-outline"><i class="bi bi-chat-dots me-2"></i>Get in Touch</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="terminal">
+                            <div class="terminal-bar">
+                                <span class="tdot red"></span><span class="tdot yellow"></span><span class="tdot green"></span>
+                                <small class="ms-2 text-muted-c">~ /portfolio.sh</small>
+                            </div>
+                            <div class="terminal-body">
+                                <p><span class="prompt">$</span> whoami</p>
+                                <p class="out">→ Junior Full Stack Developer</p>
+                                <p><span class="prompt">$</span> skills --list</p>
+                                <p class="out">→ HTML5, CSS3, JS, Bootstrap 5</p>
+                                <p><span class="prompt">$</span> status</p>
+                                <p class="out blink">→ Available for opportunities ✓</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== STATS BAR ===== -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <i class="bi bi-bar-chart-fill stat-icon"></i>
+                    <div>
+                        <h3 class="counter" data-target="5">0</h3>
+                        <p>Core Topics</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="bi bi-stars stat-icon"></i>
+                    <div>
+                        <h3 class="counter" data-target="12">0</h3>
+                        <p>Live Demos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="bi bi-cup-hot-fill stat-icon"></i>
+                    <div>
+                        <h3 class="counter" data-target="120">0</h3>
+                        <p>Hours Invested</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="bi bi-trophy-fill stat-icon"></i>
+                    <div>
+                        <h3 class="counter" data-target="100">0</h3>
+                        <p>% Effort</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== ABOUT ME ===== -->
+            <section id="about" class="content-card">
+                <div class="card-head">
+                    <h2><i class="bi bi-person-circle me-2"></i>About Me</h2>
+                    <p>A quick introduction</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-7">
+                        <p>Hello! I'm a passionate computing student exploring the world of <strong>full stack web development</strong>. I love crafting clean, accessible interfaces and writing readable, well-structured code. This ePortfolio is the culmination of everything I've learned in the CET138 module — built entirely from scratch with semantic HTML, modern CSS, Bootstrap 5, and vanilla JavaScript.</p>
+                        <p>When I'm not coding, you'll find me reading tech blogs, contributing to small open-source projects, or experimenting with new frameworks.</p>
+                        <ul class="check-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Detail-oriented and curious</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Strong fundamentals in web standards</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Eager to learn back-end & databases next</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="info-box">
+                            <h5><i class="bi bi-mortarboard"></i> Quick Facts</h5>
+                            <p><span>Module</span><strong>CET138</strong></p>
+                            <p><span>Assignment</span><strong>1</strong></p>
+                            <p><span>Weight</span><strong>30%</strong></p>
+                            <p><span>Year</span><strong>2026</strong></p>
+                            <p><span>Status</span><strong class="text-success-c">In Progress</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== SECTION 1: FULL STACK ===== -->
+            <section id="fullstack" class="content-card">
+                <div class="card-head">
+                    <h2><i class="bi bi-stack me-2"></i>What is Full Stack Development?</h2>
+                    <p>The end-to-end discipline of building web applications</p>
+                </div>
+
+                <p class="lead-c">Full stack development is the practice of building <strong>both the client-facing (frontend) and server-side (backend)</strong> portions of a web application. A full stack developer is comfortable across the entire technology stack — from designing pixel-perfect user interfaces, to writing API endpoints, to managing databases and deployment.</p>
+
+                <div class="row g-3 mt-3">
+                    <div class="col-md-4">
+                        <div class="mini-card">
+                            <i class="bi bi-window text-c"></i>
+                            <h5>Frontend</h5>
+                            <p>The visual layer the user interacts with — HTML, CSS, JS, frameworks like React or Vue.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mini-card">
+                            <i class="bi bi-hdd-network text-c"></i>
+                            <h5>Backend</h5>
+                            <p>The server logic that processes requests — Node.js, Python, PHP, plus REST or GraphQL APIs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mini-card">
+                            <i class="bi bi-database-fill text-c"></i>
+                            <h5>Database</h5>
+                            <p>Where data lives — relational (MySQL, PostgreSQL) or NoSQL (MongoDB, Firebase).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="sub-h mt-4"><i class="bi bi-diagram-3 me-2"></i>How the layers connect</h4>
+                <div class="flow-diagram">
+                    <div class="flow-step" data-step="1"><i class="bi bi-person"></i><span>User</span></div>
+                    <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                    <div class="flow-step" data-step="2"><i class="bi bi-window"></i><span>Frontend</span></div>
+                    <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                    <div class="flow-step" data-step="3"><i class="bi bi-hdd-network"></i><span>API</span></div>
+                    <div class="flow-arrow"><i class="bi bi-arrow-right"></i></div>
+                    <div class="flow-step" data-step="4"><i class="bi bi-database"></i><span>Database</span></div>
+                </div>
+                <button id="animate-flow" class="btn btn-c-primary btn-sm mt-2"><i class="bi bi-play-fill"></i> Animate the Flow</button>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-card-list me-2"></i>Popular Stacks</h4>
+                <div class="table-responsive">
+                    <table class="table-c">
+                        <thead><tr><th>Stack</th><th>Frontend</th><th>Backend</th><th>Database</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>MERN</strong></td><td>React</td><td>Express + Node</td><td>MongoDB</td></tr>
+                            <tr><td><strong>MEAN</strong></td><td>Angular</td><td>Express + Node</td><td>MongoDB</td></tr>
+                            <tr><td><strong>LAMP</strong></td><td>HTML/JS</td><td>PHP + Apache</td><td>MySQL</td></tr>
+                            <tr><td><strong>Django</strong></td><td>Templates / React</td><td>Python</td><td>PostgreSQL</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- WHAT I LEARNED -->
+                <div class="learned-box">
+                    <div class="learned-head"><i class="bi bi-lightbulb-fill"></i> What I Learned</div>
+                    <ul>
+                        <li>Full stack means owning the <strong>entire request lifecycle</strong> — from a button click in the browser to a row in a database and back.</li>
+                        <li>Each layer (frontend, API, database) has a <strong>clear contract</strong>; understanding those contracts is more important than memorising any single framework.</li>
+                        <li>Picking a stack (MERN, LAMP, Django…) is really a trade-off between <strong>team skill, performance needs, and the data model</strong>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== SECTION 2: HTML ===== -->
+            <section id="html" class="content-card">
+                <div class="card-head">
+                    <h2><i class="bi bi-filetype-html me-2"></i>HTML — HyperText Markup Language</h2>
+                    <p>The skeleton of every web page</p>
+                </div>
+
+                <p class="lead-c"><strong>HTML</strong> defines the <em>structure</em> and <em>meaning</em> of web content using elements (tags). Semantic HTML5 elements like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;article&gt;</code> describe what content <em>is</em>, helping screen readers, search engines, and developers understand the page.</p>
+
+                <h4 class="sub-h"><i class="bi bi-bookmark-star me-2"></i>Key HTML Concepts</h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="feature-row"><i class="bi bi-1-circle-fill"></i><div><strong>Semantic Elements</strong><p>Use meaningful tags (<code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>) instead of generic <code>&lt;div&gt;</code>s.</p></div></div>
+                        <div class="feature-row"><i class="bi bi-2-circle-fill"></i><div><strong>Forms &amp; Inputs</strong><p>Collect user data with built-in validation (<code>type="email"</code>, <code>required</code>).</p></div></div>
+                        <div class="feature-row"><i class="bi bi-3-circle-fill"></i><div><strong>Accessibility (ARIA)</strong><p>Labels, roles, and alt text make sites usable for everyone.</p></div></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="feature-row"><i class="bi bi-4-circle-fill"></i><div><strong>Media Embeds</strong><p>Native <code>&lt;video&gt;</code>, <code>&lt;audio&gt;</code>, and <code>&lt;picture&gt;</code> support.</p></div></div>
+                        <div class="feature-row"><i class="bi bi-5-circle-fill"></i><div><strong>Meta &amp; SEO</strong><p>Use <code>&lt;meta&gt;</code> tags for description, viewport, and Open Graph.</p></div></div>
+                        <div class="feature-row"><i class="bi bi-6-circle-fill"></i><div><strong>Tables &amp; Lists</strong><p>Organise tabular data and ordered/unordered lists with proper semantics.</p></div></div>
+                    </div>
+                </div>
+
+                <h4 class="sub-h mt-4"><i class="bi bi-code-square me-2"></i>Live Example: Semantic Structure</h4>
+                <p>Below is a real semantic-HTML snippet demonstrating proper page structure:</p>
+                <div class="code-block">
+                    <button class="copy-btn" data-copy="html-snippet"><i class="bi bi-clipboard"></i> Copy</button>
+                    <pre><code id="html-snippet" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;&lt;h1&gt;Site Title&lt;/h1&gt;&lt;/header&gt;
+    &lt;nav aria-label="Main"&gt;...&lt;/nav&gt;
+    &lt;main&gt;
+      &lt;article&gt;
+        &lt;h2&gt;Article heading&lt;/h2&gt;
+        &lt;p&gt;Body text...&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;&copy; 2026&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <!-- Code explanation -->
+                <div class="code-explain">
+                    <div class="ce-head"><i class="bi bi-info-circle-fill"></i> Code Explained</div>
+                    <ul>
+                        <li><code>&lt;!DOCTYPE html&gt;</code> tells the browser to render in standards (HTML5) mode.</li>
+                        <li><code>&lt;html lang="en"&gt;</code> declares the document language — helps screen readers pronounce words correctly.</li>
+                        <li><code>&lt;head&gt;</code> holds <em>meta-info</em> (charset, title) the user never sees directly.</li>
+                        <li><code>&lt;header&gt; / &lt;nav&gt; / &lt;main&gt; / &lt;article&gt; / &lt;footer&gt;</code> are <em>semantic landmarks</em>: they describe meaning, not appearance, so assistive tech can jump straight to a region.</li>
+                    </ul>
+                </div>
+
+                <h4 class="sub-h mt-4"><i class="bi bi-pencil-square me-2"></i>Demo: Live Form Validation</h4>
+                <p>This sign-up form uses HTML5 attributes (<code>required</code>, <code>type</code>, <code>pattern</code>) — no JavaScript needed for basic validation:</p>
+                <form id="html-demo-form" class="demo-form" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label-c">Username</label>
+                            <input type="text" name="username" class="form-control-c" required minlength="3" placeholder="min 3 chars">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-c">Email</label>
+                            <input type="email" name="email" class="form-control-c" required placeholder="you@example.com">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-c">Age</label>
+                            <input type="number" name="age" class="form-control-c" required min="16" max="120">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-c">Birthday</label>
+                            <input type="date" name="dob" class="form-control-c">
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-c-primary"><i class="bi bi-send me-1"></i> Submit</button>
+                            <span id="html-form-result" class="ms-3 d-inline-block"></span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- WHAT I LEARNED -->
+                <div class="learned-box">
+                    <div class="learned-head"><i class="bi bi-lightbulb-fill"></i> What I Learned</div>
+                    <ul>
+                        <li>Choosing the <strong>right element matters</strong>: a <code>&lt;button&gt;</code> isn't the same as a <code>&lt;div&gt;</code> with a click handler — buttons are keyboard-accessible by default.</li>
+                        <li>HTML5 input types (<code>email</code>, <code>number</code>, <code>date</code>) give me <strong>free validation</strong> and better mobile keyboards.</li>
+                        <li>Accessibility isn't extra work — using semantic tags and <code>aria-label</code> makes the page work for screen readers and SEO at the same time.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== SECTION 3: CSS ===== -->
+            <section id="css" class="content-card">
+                <div class="card-head">
+                    <h2><i class="bi bi-filetype-css me-2"></i>CSS — Cascading Style Sheets</h2>
+                    <p>The visual designer of the web</p>
+                </div>
+
+                <p class="lead-c"><strong>CSS</strong> controls the presentation — colours, typography, spacing, layout, and animation. Modern CSS (Flexbox, Grid, custom properties, transitions) lets us build responsive, accessible designs without a single image.</p>
+
+                <h4 class="sub-h"><i class="bi bi-palette-fill me-2"></i>Demo: Live Color Palette Generator</h4>
+                <p>Click the button to generate a random colour palette. Each swatch displays its hex code — click it to copy.</p>
+                <div id="palette" class="palette-grid"></div>
+                <button id="gen-palette" class="btn btn-c-primary mt-3"><i class="bi bi-shuffle me-1"></i> Generate Palette</button>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-grid-3x3 me-2"></i>Demo: Flexbox vs Grid</h4>
+                <p>Toggle between Flexbox and CSS Grid to see how each lays out the same items:</p>
+                <div class="btn-group-c mb-3">
+                    <button class="layout-btn active" data-layout="flex">Flexbox</button>
+                    <button class="layout-btn" data-layout="grid">CSS Grid</button>
+                </div>
+                <div id="layout-demo" class="layout-demo flex-mode">
+                    <div class="lb">1</div><div class="lb">2</div><div class="lb">3</div>
+                    <div class="lb">4</div><div class="lb">5</div><div class="lb">6</div>
+                </div>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-magic me-2"></i>Demo: CSS Animations</h4>
+                <p>CSS can create smooth animations without any JavaScript:</p>
+                <div class="anim-row">
+                    <div class="anim-box pulse">Pulse</div>
+                    <div class="anim-box float">Float</div>
+                    <div class="anim-box spin">Spin</div>
+                    <div class="anim-box shake-h">Hover Me</div>
+                </div>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-code-square me-2"></i>CSS Snippet — Custom Properties</h4>
+                <div class="code-block">
+                    <button class="copy-btn" data-copy="css-snippet"><i class="bi bi-clipboard"></i> Copy</button>
+                    <pre><code id="css-snippet" class="language-css">:root {
+  --brand: #10b981;
+  --space: clamp(1rem, 2vw, 2rem);
+}
+
+.card {
+  background: var(--bg);
+  padding: var(--space);
+  transition: transform .3s ease;
+}
+
+.card:hover { transform: translateY(-4px); }</code></pre>
+                </div>
+                <!-- Code explanation -->
+                <div class="code-explain">
+                    <div class="ce-head"><i class="bi bi-info-circle-fill"></i> Code Explained</div>
+                    <ul>
+                        <li><code>:root</code> targets the document root, making custom properties (CSS variables) globally available.</li>
+                        <li><code>--brand</code> &amp; <code>--space</code> are <strong>variables</strong> — change them once and the whole UI updates.</li>
+                        <li><code>clamp(min, preferred, max)</code> gives <strong>fluid spacing</strong> that scales with the viewport but never goes out of bounds.</li>
+                        <li><code>transition</code> animates property changes; <code>:hover</code> lifts the card with <code>translateY(-4px)</code>, a classic micro-interaction.</li>
+                    </ul>
+                </div>
+
+                <!-- WHAT I LEARNED -->
+                <div class="learned-box">
+                    <div class="learned-head"><i class="bi bi-lightbulb-fill"></i> What I Learned</div>
+                    <ul>
+                        <li><strong>Flexbox is 1D, Grid is 2D</strong> — I now reach for Flex for navbars/rows, and Grid for whole-page layouts.</li>
+                        <li>CSS variables make <strong>theming trivial</strong> — that's how this site swaps dark / light in one click.</li>
+                        <li>Animations should respect <code>prefers-reduced-motion</code>; users with vestibular issues shouldn't be forced to watch things bounce.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== SECTION 4: BOOTSTRAP ===== -->
+            <section id="bootstrap" class="content-card">
+                <div class="card-head">
+                    <h2><i class="bi bi-bootstrap me-2"></i>Bootstrap 5 Framework</h2>
+                    <p>The world's most popular front-end toolkit</p>
+                </div>
+
+                <p class="lead-c"><strong>Bootstrap 5</strong> is an open-source CSS framework that provides a 12-column responsive grid, dozens of ready-to-use components (modals, carousels, navbars), and powerful utility classes (<code>mt-3</code>, <code>d-flex</code>, <code>text-center</code>) — letting you build polished interfaces in record time.</p>
+
+                <h4 class="sub-h"><i class="bi bi-list-check me-2"></i>Live Demo: Accordion</h4>
+                <p>Bootstrap's accordion component is built using the JavaScript collapse plugin:</p>
+                <div class="accordion accordion-c" id="bs-accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc1">Why use Bootstrap?</button>
+                        </h2>
+                        <div id="acc1" class="accordion-collapse collapse show" data-bs-parent="#bs-accordion">
+                            <div class="accordion-body">Rapid prototyping, mobile-first responsive grid, browser-tested components, and a huge community.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc2">What's new in v5?</button>
+                        </h2>
+                        <div id="acc2" class="accordion-collapse collapse" data-bs-parent="#bs-accordion">
+                            <div class="accordion-body">Dropped jQuery, added RTL support, improved customisation via Sass variables, and a brand-new icon library.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc3">Can I customise it?</button>
+                        </h2>
+                        <div id="acc3" class="accordion-collapse collapse" data-bs-parent="#bs-accordion">
+                            <div class="accordion-body">Absolutely — override the Sass variables or simply use CSS custom properties to re-theme any component.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-window-stack me-2"></i>Live Demo: Modal Dialog</h4>
+                <p>Click the button to open a Bootstrap modal — fully accessible with keyboard navigation:</p>
+                <button class="btn btn-c-primary" data-bs-toggle="modal" data-bs-target="#demoModal">
+                    <i class="bi bi-arrow-up-right-square me-1"></i> Open Modal
+                </button>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-grid-1x2 me-2"></i>Live Demo: Responsive Grid</h4>
+                <p>Bootstrap's 12-column grid adapts to every screen size. Resize your window to see the columns reflow:</p>
+                <div class="row g-3">
+                    <div class="col-12 col-md-6 col-lg-3"><div class="grid-demo">col-12 · md-6 · lg-3</div></div>
+                    <div class="col-12 col-md-6 col-lg-3"><div class="grid-demo">col-12 · md-6 · lg-3</div></div>
+                    <div class="col-12 col-md-6 col-lg-3"><div class="grid-demo">col-12 · md-6 · lg-3</div></div>
+                    <div class="col-12 col-md-6 col-lg-3"><div class="grid-demo">col-12 · md-6 · lg-3</div></div>
+                </div>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-info-circle me-2"></i>Bootstrap Utility Classes</h4>
+                <p>Build whole layouts without writing a single CSS rule:</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge bg-success">.bg-success</span>
+                    <span class="badge bg-warning text-dark">.bg-warning</span>
+                    <span class="badge bg-info text-dark">.bg-info</span>
+                    <span class="badge bg-danger">.bg-danger</span>
+                    <span class="badge bg-secondary">.bg-secondary</span>
+                </div>
+
+                <!-- WHAT I LEARNED -->
+                <div class="learned-box">
+                    <div class="learned-head"><i class="bi bi-lightbulb-fill"></i> What I Learned</div>
+                    <ul>
+                        <li>Bootstrap's <strong>12-column grid</strong> is just a Flexbox wrapper — the magic is in the breakpoint classes (<code>col-md-6</code>, <code>col-lg-3</code>).</li>
+                        <li>Utility classes like <code>d-flex</code>, <code>gap-3</code>, <code>mt-5</code> let me prototype layouts <strong>5–10× faster</strong> than writing raw CSS.</li>
+                        <li>Bootstrap components (modal, accordion) come with <strong>focus traps and ARIA roles built in</strong> — accessibility for free.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== SECTION 5: JAVASCRIPT ===== -->
+            <section id="javascript" class="content-card">
+                <div class="card-head">
+                    <h2><i class="bi bi-filetype-js me-2"></i>JavaScript — The Logic Layer</h2>
+                    <p>Bringing interactivity to the web</p>
+                </div>
+
+                <p class="lead-c"><strong>JavaScript</strong> is the programming language of the web. It runs in every browser, manipulates the DOM, handles user events, fetches data asynchronously, and even powers servers (Node.js). Every demo on this page is built with vanilla JS — no frameworks!</p>
+
+                <h4 class="sub-h"><i class="bi bi-calculator me-2"></i>Demo 1: Live Calculator</h4>
+                <p>A working calculator built with event delegation and a safe expression parser:</p>
+                <div class="calculator">
+                    <div id="calc-display" class="calc-display">0</div>
+                    <div class="calc-keys">
+                        <button data-key="C" class="op span2">C</button>
+                        <button data-key="←" class="op">←</button>
+                        <button data-key="/" class="op">÷</button>
+                        <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+                        <button data-key="*" class="op">×</button>
+                        <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+                        <button data-key="-" class="op">−</button>
+                        <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+                        <button data-key="+" class="op">+</button>
+                        <button data-key="0" class="span2">0</button><button data-key=".">.</button>
+                        <button data-key="=" class="eq">=</button>
+                    </div>
+                </div>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-cloud-arrow-down me-2"></i>Demo 2: Async API Fetch</h4>
+                <p>This demo uses the <code>fetch()</code> API and async/await to grab a random programming joke from a public API:</p>
+                <div class="joke-box">
+                    <p id="joke-text">Click the button to fetch a programming joke!</p>
+                    <button id="get-joke" class="btn btn-c-primary"><i class="bi bi-emoji-laughing me-1"></i> Get a Joke</button>
+                </div>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-list-task me-2"></i>Demo 3: Interactive To-Do List</h4>
+                <p>Add your own tasks, tick them off, or pick from the recommended ideas below. Your list persists in <code>localStorage</code> — refresh and it's still there.</p>
+                <div class="todo-app">
+                    <div class="todo-input-row">
+                        <input id="todo-input" type="text" class="form-control-c" placeholder="What needs doing?" maxlength="80">
+                        <button id="todo-add" class="btn btn-c-primary"><i class="bi bi-plus-lg"></i> Add</button>
+                    </div>
+
+                    <!-- Recommended suggestions -->
+                    <div class="todo-suggest">
+                        <div class="ts-label"><i class="bi bi-stars"></i> Recommended — click to add</div>
+                        <div class="ts-chips" id="todo-suggestions">
+                            <button class="chip" data-task="Review HTML semantic tags">📘 Review HTML semantic tags</button>
+                            <button class="chip" data-task="Practise Flexbox vs Grid">🎨 Practise Flexbox vs Grid</button>
+                            <button class="chip" data-task="Build a small JS project">⚡ Build a small JS project</button>
+                            <button class="chip" data-task="Read MDN docs for 15 min">📖 Read MDN for 15 min</button>
+                            <button class="chip" data-task="Commit today's work to GitHub">🐙 Commit work to GitHub</button>
+                            <button class="chip" data-task="Refactor one ugly component">🧹 Refactor one ugly component</button>
+                        </div>
+                    </div>
+
+                    <!-- Stats + bulk actions -->
+                    <div class="todo-toolbar">
+                        <div class="todo-stats">
+                            <span class="badge-soft"><i class="bi bi-list-ul"></i> Total: <strong id="todo-total">0</strong></span>
+                            <span class="badge-soft success"><i class="bi bi-check2-circle"></i> Done: <strong id="todo-done">0</strong></span>
+                            <span class="badge-soft warn"><i class="bi bi-hourglass-split"></i> Left: <strong id="todo-left">0</strong></span>
+                        </div>
+                        <div class="todo-bulk">
+                            <button id="todo-complete-all" class="btn-mini" title="Mark all complete"><i class="bi bi-check-all"></i> Complete all</button>
+                            <button id="todo-clear-done" class="btn-mini" title="Remove completed"><i class="bi bi-eraser-fill"></i> Clear done</button>
+                            <button id="todo-clear-all" class="btn-mini danger" title="Remove every task"><i class="bi bi-trash3-fill"></i> Remove all</button>
+                        </div>
+                    </div>
+
+                    <ul id="todo-list" class="todo-list"></ul>
+                    <p id="todo-empty" class="text-muted-c text-center mt-3">No tasks yet — add one above or pick a recommended task!</p>
+                </div>
+
+                <h4 class="sub-h mt-5"><i class="bi bi-code-square me-2"></i>JavaScript Snippet — Async/Await</h4>
+                <div class="code-block">
+                    <button class="copy-btn" data-copy="js-snippet"><i class="bi bi-clipboard"></i> Copy</button>
+                    <pre><code id="js-snippet" class="language-javascript">async function getJoke() {
+  try {
+    const res  = await fetch('https://...');
+    const data = await res.json();
+    return data.joke;
+  } catch (err) {
+    console.error('Fetch failed:', err);
+    return 'Oops — try again!';
+  }
+}</code></pre>
+                </div>
+                <!-- Code explanation -->
+                <div class="code-explain">
+                    <div class="ce-head"><i class="bi bi-info-circle-fill"></i> Code Explained</div>
+                    <ul>
+                        <li><code>async</code> turns the function into a Promise — it can now use <code>await</code> inside.</li>
+                        <li><code>await fetch(...)</code> pauses until the network reply arrives, but doesn't freeze the page (other JS keeps running).</li>
+                        <li><code>res.json()</code> is <em>also</em> async — JSON parsing is streamed, so we <code>await</code> it too.</li>
+                        <li><code>try / catch</code> means a dropped Wi-Fi connection shows a friendly message instead of crashing the UI.</li>
+                    </ul>
+                </div>
+
+                <!-- WHAT I LEARNED -->
+                <div class="learned-box">
+                    <div class="learned-head"><i class="bi bi-lightbulb-fill"></i> What I Learned</div>
+                    <ul>
+                        <li>The DOM is just a <strong>tree of objects</strong> — once that clicked, <code>querySelector</code> and event listeners stopped feeling magical.</li>
+                        <li><strong>Async/await</strong> is just nicer-looking Promises. Always wrap network calls in <code>try / catch</code>.</li>
+                        <li><strong>localStorage</strong> lets a static site behave like a real app — my to-do list survives a full refresh.</li>
+                        <li>Separating data (the <code>todos</code> array) from view (<code>render()</code>) keeps the code <strong>predictable</strong> — every state change just re-renders.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== CONTACT ===== -->
+            <section id="contact" class="content-card">
+                <div class="card-head">
+                    <h2><i class="bi bi-envelope-fill me-2"></i>Get in Touch</h2>
+                    <p>I'd love to hear from you</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-5">
+                        <div class="contact-info">
+                            <div class="ci-item"><i class="bi bi-envelope-at-fill"></i><div><strong>Email</strong><p>bibekthandar3@gmail.com</p></div></div>
+                            <div class="ci-item"><i class="bi bi-github"></i><div><strong>GitHub</strong><p>github.com/bibekthandar3-stack</p></div></div>
+                            <div class="ci-item"><i class="bi bi-geo-alt-fill"></i><div><strong>Location</strong><p>Biratnagar</p></div></div>
+                            <div class="ci-item"><i class="bi bi-clock-fill"></i><div><strong>Response time</strong><p>Usually within 24 hours</p></div></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <form id="contact-form" class="demo-form" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label-c">Name</label>
+                                    <input type="text" name="name" class="form-control-c" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-c">Email</label>
+                                    <input type="email" name="email" class="form-control-c" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-c">Subject</label>
+                                    <input type="text" name="subject" class="form-control-c" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-c">Message</label>
+                                    <textarea name="message" rows="4" class="form-control-c" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-c-primary"><i class="bi bi-send-fill me-1"></i> Send Message</button>
+                                    <span id="contact-result" class="ms-3 d-inline-block"></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== FOOTER ===== -->
+            <footer class="dash-footer">
+                <p>&copy; 2026 Bibek Thandar (bj19nr) · Built from scratch with HTML5, CSS3, Bootstrap 5 &amp; Vanilla JS</p>
+                <p class="small text-muted-c">CET138 Full Stack Development · Assignment 1</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- ===== BOOTSTRAP MODAL ===== -->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-c">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-info-circle text-c me-2"></i> Bootstrap Modal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a fully accessible Bootstrap 5 modal component. It traps focus, supports keyboard navigation (Esc to close), and dims the background.</p>
+                    <p>Modals are perfect for confirmations, image lightboxes, and form dialogs without leaving the current page.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-c-outline" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-c-primary" data-bs-dismiss="modal">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast" class="toast-c" role="status" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
